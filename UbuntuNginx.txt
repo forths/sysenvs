@@ -1,0 +1,60 @@
+安装nginx
+sudo apt-get update
+sudo apt-get install nginx
+
+         ？？？防火墙
+         sudo ufw app list
+         输出：
+         Available applications:
+         Nginx Full
+         Nginx HTTP
+         Nginx HTTPS
+         OpenSSH
+
+         Nginx Full：此配置文件打开端口80（正常，未加密的Web流量）和端口443（TLS / SSL加密流量）
+         Nginx HTTP：此配置文件仅打开端口80（正常，未加密的Web流量）
+         Nginx HTTPS：此配置文件仅打开端口443（TLS / SSL加密流量）
+操作
+forths@mytool:~$ sudo systemctl start nginx     开启
+forths@mytool:~$ sudo systemctl restart nginx   重启
+forths@mytool:~$ sudo systemctl stop nginx      停止
+forths@mytool:~$ sudo systemctl reload nginx    热更新配置文件
+forths@mytool:~$ sudo systemctl disable nginx   取消开机启动
+Synchronizing state of nginx.service with SysV init with /lib/systemd/systemd-sysv-install...
+Executing /lib/systemd/systemd-sysv-install disable nginx
+insserv: warning: current start runlevel(s) (empty) of script `nginx' overrides LSB defaults (2 3 4 5).
+insserv: warning: current stop runlevel(s) (0 1 2 3 4 5 6) of script `nginx' overrides LSB defaults (0 1 6).
+forths@mytool:~$ sudo systemctl enable nginx   开启开机启动
+Synchronizing state of nginx.service with SysV init with /lib/systemd/systemd-sysv-install...
+Executing /lib/systemd/systemd-sysv-install enable nginx
+insserv: warning: current start runlevel(s) (empty) of script `nginx' overrides LSB defaults (2 3 4 5).
+insserv: warning: current stop runlevel(s) (0 1 2 3 4 5 6) of script `nginx' overrides LSB defaults (0 1 6).
+
+sudo nginx -t
+Tip: 当每次修改完nginx 配置后, 也可使用此语句先查看配置是否正确.
+查看端口
+sudo lsof -i:80
+
+目录配置
+内容
+/var/www/html：实际的Web内容（默认情况下只包含您之前看到的默认Nginx页面）已被提供给/var/www/html目录。这可以通过更改Nginx配置文件来更改。
+服务器配置
+/etc/nginx：nginx配置目录。所有的Nginx配置文件驻留在这里。
+/etc/nginx/nginx.conf主要的Nginx配置文件。这可以修改为对Nginx全局配置进行更改。
+/etc/nginx/sites-available：可以存储每个站点“服务器块”的目录。Nginx不会使用此目录中找到的配置文件，除非它们链接到sites-enabled目录（见下文）。通常，所有服务器块配置都在此目录中完成，然后通过链接到其他目录来启用。
+/etc/nginx/sites-enabled/：存储启用每个站点“服务器块”的目录。通常，这些是通过链接到目录中找到的配置文件创建的sites-available。
+/etc/nginx/snippets：此目录包含Nginx配置中可以包含的配置片段。潜在的可重复配置段是重构为代码片段的好候选者。
+服务器日志
+/var/log/nginx/access.log Web服务器的每个请求都将记录在此日志文件中，除非Nginx配置为其他方式。
+/var/log/nginx/error.log：任何Nginx错误将记录在此日志中。
+
+配置文件详解
+。。。
+
+
+
+
+
+
+
+
