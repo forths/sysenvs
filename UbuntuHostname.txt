@@ -1,0 +1,10 @@
+临时修改主机名
+命令行下运行命令：“hostname 新主机名” 
+
+永久修改
+第一步： 修改/etc/hostname 
+/etc/hostname中存放的是主机名。
+第二步：修改/etc/hosts配置文件（可选） 
+/etc/hosts存放的是域名与ip的对应关系，域名与主机名没有任何关系，你可以为任何一个IP指定任意一个名字。
+第三步：重启系统
+root@mytool:~# sudo reboot
