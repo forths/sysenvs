@@ -9,3 +9,6 @@ http://mirrors.aliyun.com/pypi/simple/ 阿里     o
 Linux下，修改 ~/.pip/pip.conf (没有就自己创建)， 修改 index-url至清华源，简洁的配置内容如下：
 [global]
 index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+trusted-host = pypi.tuna.tsinghua.edu.cn
+disable-pip-version-check = true
+timeout = 120
