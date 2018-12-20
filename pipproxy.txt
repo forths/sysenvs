@@ -1,0 +1,11 @@
+http://pypi.douban.com/  豆瓣
+http://pypi.hustunique.com/  华中理工大学
+http://pypi.sdutlinux.org/  山东理工大学
+http://pypi.mirrors.ustc.edu.cn/  中国科学技术大学
+https://pypi.tuna.tsinghua.edu.cn/simple 清华   ok
+http://mirrors.aliyun.com/pypi/simple/ 阿里     o
+
+
+Linux下，修改 ~/.pip/pip.conf (没有就自己创建)， 修改 index-url至清华源，简洁的配置内容如下：
+[global]
+index-url = https://pypi.tuna.tsinghua.edu.cn/simple
